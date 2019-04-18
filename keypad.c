@@ -80,6 +80,18 @@ uint8_t keypad_getkey(void){
     return 12;
 }
 
+// Blocking get key with some debounce
+uint8_t keypad_blocking_getkey(unsigned int hold_ms){
+    uint8_t val = keypad_getkey();
+    while (val == 12){
+        val = keypad_getkey();
+    }
+    delay_ms_auto(hold_ms);
+    while(keypad_getkey() != 12){}
+    return val;
+}
+
+
 inline static void row_all_select(){
     P4->OUT |= ROW_MASK;
 }

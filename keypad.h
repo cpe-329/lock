@@ -38,6 +38,7 @@ inline void keypad_init(void);
 
 // Read the current value from the keypad (non-blocking)
 uint8_t keypad_getkey(void);
+uint8_t keypad_blocking_getkey(unsigned int hold_ms);
 
 //  Bringthe selected row high
 inline static void row_all_select();

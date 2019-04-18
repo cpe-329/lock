@@ -31,6 +31,13 @@ inline void led_off(void){
     P1->OUT &= ~LED1_STATE_ON;
 }
 
+// Blink LED on and off for given ms
+void led_blink_ms(unsigned int ms){
+    led_on();
+    delay_ms_auto(ms);
+    led_off();
+}
+
 // Setup RGB LED
 void rgb_init(void){
     P1->SEL0 &= ~PIN_RGB_SEL0_GPIO;  // Set sel0 bits low for GPIO

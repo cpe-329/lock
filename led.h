@@ -41,6 +41,7 @@ inline void led_init(void);
 inline void led_toggle(void);
 inline void led_on(void);
 inline void led_off(void);
+void led_blink_ms(unsigned int ms);
 
 // Setup RGB LED
 void rgb_init(void);

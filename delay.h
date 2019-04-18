@@ -23,6 +23,8 @@
 
 #define NOP asm(" NOP");
 
+#define ONE_S_MS (1000)
+
 // Initialize DCO and other clock values
 void init_dco(void);
 

@@ -12,6 +12,7 @@
 #include "delay.h"
 #include "lcd.h"
 #include "led.h"
+#include "lock.h"
 #include "keypad.h"
 
 #define FREQ FREQ_48_MHZ
@@ -20,10 +21,12 @@ void main(void)
 {
 	init(FREQ);  // Initialize periphrials
 	test_leds();  // Blink LEDs to say hellow
+	lock_message();
+	delay_ms_auto(1000);
 	
-	while(1){  // Loop
-		uint8_t key = keypad_getkey();  // Read key from keypad
-	 	leds_display_keypad(key);  // Display key on LEDs
-	 	lcd_display_keypad(key);  // Display key on LCD
-	}
+//	while(1){  // Loop
+//		uint8_t key = keypad_getkey();  // Read key from keypad
+//	 	leds_display_keypad(key);  // Display key on LEDs
+//	 	lcd_display_keypad(key);  // Display key on LCD
+//	}
 }

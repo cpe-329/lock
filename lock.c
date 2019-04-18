@@ -21,7 +21,6 @@ void lock(const uint8_t pass1,
 void lock_message(){
     lcd_cursor_off();
     
-    lcd_clear();
     // lcd_home();  // ?
     lcd_write('L');
     lcd_write('O');
@@ -29,7 +28,7 @@ void lock_message(){
     lcd_write('K');
     lcd_write('E');
     lcd_write('D');
-    lcd_write('\n');
+    lcd_line_2();
     lcd_write('E');
     lcd_write('n');
     lcd_write('t');

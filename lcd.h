@@ -28,13 +28,14 @@
 
 //  lcd Mode options
 #define CMD_STARTUP       (0b00100000)
-#define CMD_SET_2L_4B     (0b11000000)
+#define CMD_SET_2L_4B     (0b00101000)
 #define CMD_DISP_CTL_OFF  (0b00001000)
 #define CMD_DISP_CTL_D    (0b00001100)
 #define CMD_DISP_CTL_DC   (0b00001110)
 #define CMD_DISP_CTL_DCB  (0b00001111)
 #define CMD_DISP_CTL_INIT CMD_DISP_CTL_D 
 #define CMD_DISP_CLR      (0b00000001)
+#define CMD_LINE_2        (0b11000000)
 #define CMD_ENTRY_MODE    (0b00000110)
 #define CMD_HOME          (0b00000010)
 
@@ -52,6 +53,7 @@ inline void lcd_blink_on();
 inline void lcd_blink_off();
 inline void lcd_cursor_on();
 inline void lcd_cursor_off();
+inline void lcd_line_2();
 
 static inline void Nybble();
 static inline void lcd_db_write(unsigned char i);

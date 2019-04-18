@@ -67,6 +67,7 @@ uint8_t lock(const passcode_t passcode){
 
 void lock_message(){
     lcd_cursor_off();
+    lcd_clear();
 
     lcd_write('L');
     lcd_write('O');

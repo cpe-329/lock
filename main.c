@@ -19,7 +19,7 @@
 
 void main(void)
 {
-	passcode_t passcode = passcode_init(4, 4, 6, 7);
+	passcode_t passcode = passcode_init(1,1,1,1);
 	init(FREQ);  // Initialize periphrials
 	test_leds();  // Blink LEDs to say hellow
 	delay_ms_auto(1000);

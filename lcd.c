@@ -35,21 +35,21 @@ void lcd_init(){
     lcd_command(CMD_SET_2L_4B); // Select mode
     
     // Wait >39us
-    delay_ms_auto(1);
+    delay_ms_auto(30);
     // delay_us_auto(40);  // Datasheet delay, lies
 
     // Display ON/OFF control
     lcd_command(CMD_DISP_CTL_INIT);
 
     // Wait >39us
-    delay_ms_auto(1);
+    delay_ms_auto(30);
     // delay_us_auto(40);  // Datasheet delay, lies
 
     // Display Clear
     lcd_command(CMD_DISP_CLR);
 
     // Wait >1.53ms
-    delay_ms_auto(2);
+    delay_ms_auto(30);
 
     //Entry Mode Set
     lcd_command(CMD_ENTRY_MODE);
@@ -105,6 +105,7 @@ inline void lcd_home(){
 // Set cursor to home, clears display
 inline void lcd_clear(){
     lcd_command_delay(CMD_DISP_CLR);
+    delay_ms_auto(25);
 }
 
 // Turn display on, without cursor or blinking

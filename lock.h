@@ -14,4 +14,6 @@
 
 void lock(const uint8_t pass1, const uint8_t pass2, const uint8_t pass3, const uint8_t pass4);
 
+void lock_message()
+
 #endif

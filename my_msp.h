@@ -46,6 +46,11 @@
 // Macro for disabling watchdog
 #define DISABLE_WATCHDOG  WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
 
+
+#define TRUE (1)
+#define FALSE (0)
+
+
 // Initialize all used periphrials
 inline void init(const unsigned int freq);
 

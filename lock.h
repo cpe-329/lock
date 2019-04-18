@@ -11,9 +11,21 @@
 
 #include "stdint.h"
 
+#define LOCK_HOLD_MS (5)
 
-void lock(const uint8_t pass1, const uint8_t pass2, const uint8_t pass3, const uint8_t pass4);
+typedef struct passcode_s {
+    uint8_t dig1;
+    uint8_t dig2;
+    uint8_t dig3;
+    uint8_t dig4;
+} passcode_t;
 
-void lock_message()
+uint8_t lock(const passcode_t passcode);
+
+void lock_message();
+uint8_t check_passcode(passcode_t actual, passcode_t guess);
+passcode_t passcode_init(uint8_t dig1, uint8_t dig2, uint8_t dig3, uint8_t dig4);
+passcode_t passcode_empty();
+void unlock_message();
 
 #endif

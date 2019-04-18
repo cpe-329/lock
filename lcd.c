@@ -86,12 +86,17 @@ void lcd_write_str(char *s, const int len){
     }
 }
 
+
 // Wrapper for lcd_command with long delay
 static inline void lcd_command_delay(unsigned char i){
     lcd_command(i);
     delay_ms_auto(30);
 }
 
+inline void lcd_line_2(){
+    lcd_command_delay(CMD_LINE_2);
+
+}
 // Set cursor to home, does not clear
 inline void lcd_home(){
     lcd_command_delay(CMD_HOME);

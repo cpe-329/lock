@@ -22,6 +22,7 @@ void main(void)
 	passcode_t passcode = passcode_init(4, 4, 6, 7);
 	init(FREQ);  // Initialize periphrials
 	test_leds();  // Blink LEDs to say hellow
+	delay_ms_auto(1000);
 	
 	while(1){  // Loop
 		if(lock(passcode)){

@@ -13,17 +13,20 @@
 #include "lcd.h"
 #include "led.h"
 #include "keypad.h"
+#include "lock.h"
 
 #define FREQ FREQ_48_MHZ
 
 void main(void)
 {
+	passcode_t passcode = passcode_init(4, 4, 6, 7);
 	init(FREQ);  // Initialize periphrials
 	test_leds();  // Blink LEDs to say hellow
 	
 	while(1){  // Loop
-		uint8_t key = keypad_getkey();  // Read key from keypad
-	 	leds_display_keypad(key);  // Display key on LEDs
-	 	lcd_display_keypad(key);  // Display key on LCD
+		if(lock(passcode)){
+        	unlock_message();
+        	keypad_await_keypress(LOCK_HOLD_MS);
+		}
 	}
 }

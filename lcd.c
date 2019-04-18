@@ -161,13 +161,14 @@ static inline void clear_RW(){
 }
 
 // Display key from keypad
-inline void lcd_display_keypad(uint8_t key){
+inline void lcd_display_keypad(const uint8_t key){
+    lcd_cursor_off();
     lcd_home();  // Return to first position
     lcd_write(translate_keypad(key));  // Translate and write value
 }
 
 // Translate keypad values to char
-inline unsigned char translate_keypad(uint8_t key){
+unsigned char lcd_translate_keypad(const uint8_t key){
     switch(key){
         case 0:
             return '0';

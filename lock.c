@@ -22,14 +22,41 @@ uint8_t lock(const passcode_t passcode){
     lock_message();
     lcd_blink_on();
 
+    // First digit
     new_dig = keypad_blocking_getkey(LOCK_HOLD_MS);
     if(new_dig == 10){
         return FALSE;
     }
     lcd_write(lcd_translate_keypad(new_dig));
     led_blink_ms(ONE_S_MS);
+    guess.dig1 = new_dig;
 
+    // Second digit
+    new_dig = keypad_blocking_getkey(LOCK_HOLD_MS);
+    if(new_dig == 10){
+        return FALSE;
+    }
+    lcd_write(lcd_translate_keypad(new_dig));
+    led_blink_ms(ONE_S_MS);
+    guess.dig2 = new_dig;
 
+    // Thrid digit
+    new_dig = keypad_blocking_getkey(LOCK_HOLD_MS);
+    if(new_dig == 10){
+        return FALSE;
+    }
+    lcd_write(lcd_translate_keypad(new_dig));
+    led_blink_ms(ONE_S_MS);
+    guess.dig3 = new_dig;
+    
+    // Fourth digit
+    new_dig = keypad_blocking_getkey(LOCK_HOLD_MS);
+    if(new_dig == 10){
+        return FALSE;
+    }
+    lcd_write(lcd_translate_keypad(new_dig));
+    led_blink_ms(ONE_S_MS);
+    guess.dig4 = new_dig;
 
     if(check_passcode(passcode, guess)){
         return TRUE;

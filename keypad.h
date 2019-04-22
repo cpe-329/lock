@@ -14,18 +14,18 @@
 #include "my_msp.h"
 
 /* Keypad Pins: NC  A     B     C     D     E     F     G    NC
- * MSP Pins:       P3.6  P4.4  P3.5  P4.7  P3.7  P4.6  P4.5
+ * MSP Pins:       P3.5  P4.4  P3.6  P4.5  P3.7  P4.7  P4.6
  * Pin Name:       COL1  ROW0  COL0  ROW3  COL2  ROW2  ROW1 
  */
 
-#define COL0 P3_5
-#define COL1 P3_6
+#define COL0 P3_6
+#define COL1 P3_5
 #define COL2 P3_7
 
 #define ROW0 P4_4
-#define ROW1 P4_5
-#define ROW2 P4_6
-#define ROW3 P4_7
+#define ROW1 P4_6
+#define ROW2 P4_7
+#define ROW3 P4_5
 
 #define COL_MASK (COL2 | COL1 | COL0)
 #define ROW_MASK (ROW3 | ROW2 | ROW1 | ROW0)

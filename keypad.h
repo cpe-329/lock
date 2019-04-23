@@ -30,6 +30,9 @@
 #define COL_MASK (COL2 | COL1 | COL0)
 #define ROW_MASK (ROW3 | ROW2 | ROW1 | ROW0)
 
+// Value when no key is pressed
+#define KEYPAD_NO_KEY (12)
+
 // Time to wait after bringing a row high
 #define SETTLE_DELAY 1
 

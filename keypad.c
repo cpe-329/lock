@@ -34,7 +34,7 @@ uint8_t keypad_getkey(void){
     delay_ms_auto(SETTLE_DELAY);
     if (col_all_read() == 0){
         // Nothing was pressed
-        return 12;
+        return KEYPAD_NO_KEY;
     }
 
     // Check first row
@@ -77,13 +77,13 @@ uint8_t keypad_getkey(void){
     else if (col_2_read())
         return 11;
     // Nothing was pressed
-    return 12;
+    return KEYPAD_NO_KEY;
 }
 
 // Blocking get key with some debounce
 uint8_t keypad_blocking_getkey(unsigned int hold_ms){
     uint8_t val = keypad_getkey();
-    while (val == 12){
+    while (val == KEYPAD_NO_KEY){
         val = keypad_getkey();
     }
     delay_ms_auto(hold_ms);
@@ -93,11 +93,11 @@ uint8_t keypad_blocking_getkey(unsigned int hold_ms){
 
 void keypad_await_keypress(unsigned int hold_ms){
     uint8_t val = keypad_getkey();
-    while (val == 12){
+    while (val == KEYPAD_NO_KEY){
         val = keypad_getkey();
     }
     delay_ms_auto(hold_ms);
-    while(keypad_getkey() != 12){}
+    while(keypad_getkey() != KEYPAD_NO_KEY){}
 }
 
 

@@ -12,14 +12,20 @@
 #include "lcd.h"
 #include "keypad.h"
 
-
+// Execute the lock routine
 uint8_t lock(const passcode_t passcode){
+    // Stores the user's guess
     passcode_t guess;
+    // Stores the last input value
     uint8_t new_dig;
 
+    // construct to be empty
     guess = passcode_empty();
-    new_dig = 12;
+    // Default unset value
+    new_dig = KEYPAD_NO_KEY;
+    // Display message
     lock_message();
+    // Restore blinking for input
     lcd_blink_on();
 
     // First digit
@@ -65,6 +71,7 @@ uint8_t lock(const passcode_t passcode){
     }
 }
 
+// Display the locked message
 void lock_message(){
     lcd_cursor_off();
     lcd_clear();
@@ -89,6 +96,7 @@ void lock_message(){
     lcd_write(' ');
 }
 
+// Display the unlocked message
 void unlock_message(){
     lcd_cursor_off();
     lcd_clear();
@@ -107,6 +115,7 @@ void unlock_message(){
     lcd_write('d');
 }
 
+// Check two passcodes for equality
 uint8_t check_passcode(passcode_t actual, passcode_t guess){
     return ((actual.dig1 == guess.dig1) &
             (actual.dig2 == guess.dig2) &
@@ -114,6 +123,7 @@ uint8_t check_passcode(passcode_t actual, passcode_t guess){
             (actual.dig4 == guess.dig4));
 }
 
+// Construct a passcode
 passcode_t passcode_init(uint8_t dig1, 
                          uint8_t dig2,
                          uint8_t dig3,
@@ -126,6 +136,7 @@ passcode_t passcode_init(uint8_t dig1,
     return passcode;
 }
 
+// Construct and empty passcode
 passcode_t passcode_empty(){
     return passcode_init(12, 12, 12, 12);
 }
